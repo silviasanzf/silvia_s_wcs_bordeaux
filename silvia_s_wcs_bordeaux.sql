@@ -31,12 +31,13 @@ DROP TABLE IF EXISTS `eleves`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `eleves` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_eleves` int(11) NOT NULL,
   `nom` varchar(30) DEFAULT NULL,
   `prenom` varchar(30) DEFAULT NULL,
-  `adresse` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `id_langages` int(11) DEFAULT NULL,
+  `id_villes` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_eleves`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,8 +46,56 @@ CREATE TABLE `eleves` (
 
 LOCK TABLES `eleves` WRITE;
 /*!40000 ALTER TABLE `eleves` DISABLE KEYS */;
-INSERT INTO `eleves` VALUES (1,'Presley','elvis','menphis'),(2,'google',NULL,NULL),(3,NULL,'lorie',NULL),(4,'cobain','kurt','seattle'),(5,'aretha','franklin','detroit');
+INSERT INTO `eleves` VALUES (1,'Presley','elvis',3,1),(2,'google',NULL,2,2),(3,NULL,'lorie',1,2),(4,'cobain','kurt',3,1),(5,'aretha','franklin',1,2);
 /*!40000 ALTER TABLE `eleves` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `langages`
+--
+
+DROP TABLE IF EXISTS `langages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `langages` (
+  `id_langages` int(11) NOT NULL,
+  `nom` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_langages`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `langages`
+--
+
+LOCK TABLES `langages` WRITE;
+/*!40000 ALTER TABLE `langages` DISABLE KEYS */;
+INSERT INTO `langages` VALUES (1,' PHP'),(2,' Javascript'),(3,' JAVA');
+/*!40000 ALTER TABLE `langages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `villes`
+--
+
+DROP TABLE IF EXISTS `villes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `villes` (
+  `id_ville` int(11) NOT NULL,
+  `nom` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_ville`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `villes`
+--
+
+LOCK TABLES `villes` WRITE;
+/*!40000 ALTER TABLE `villes` DISABLE KEYS */;
+INSERT INTO `villes` VALUES (1,'Bordeaux'),(2,'Lyon');
+/*!40000 ALTER TABLE `villes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-19 16:17:27
+-- Dump completed on 2018-09-24 18:20:49
